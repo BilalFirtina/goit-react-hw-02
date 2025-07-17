@@ -1,6 +1,6 @@
 import css from "./Options.module.css";
 
-const Options = ({ options, updateFeedback }) => {
+const Options = ({ options, updateFeedback, totalFeedback, resetButton }) => {
   return (
     <div>
       {options.map((option) => {
@@ -14,6 +14,12 @@ const Options = ({ options, updateFeedback }) => {
           </button>
         );
       })}
+      {/* Koşullu olarak Reset butonunu göster */}
+      {totalFeedback > 0 && (
+        <button className={css.button} onClick={resetButton}>
+          Reset
+        </button>
+      )}
     </div>
   );
 };
