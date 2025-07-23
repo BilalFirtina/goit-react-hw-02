@@ -9,9 +9,9 @@ function App() {
   const localVotes = JSON.parse(localStorage.getItem("votes"))
     ? JSON.parse(localStorage.getItem("votes"))
     : {
-        Good: 0,
-        Neutral: 0,
-        Bad: 0,
+        good: 0,
+        neutral: 0,
+        bad: 0,
       };
   const [votes, setVotes] = useState(localVotes);
 
@@ -28,16 +28,16 @@ function App() {
 
   const handleReset = () => {
     setVotes({
-      Good: 0,
-      Neutral: 0,
-      Bad: 0,
+      good: 0,
+      neutral: 0,
+      bad: 0,
     });
   };
 
-  const totalFeedback = votes.Good + votes.Neutral + votes.Bad;
+  const totalFeedback = votes.good + votes.neutral + votes.bad;
   const positivePercentage =
-    totalFeedback > 0 ? Math.round((votes.Good / totalFeedback) * 100) : 0;
-  const options = ["good", "neutral", "bad"];
+    totalFeedback > 0 ? Math.round((votes.good / totalFeedback) * 100) : 0;
+  const options = ["Good", "Neutral", "Bad"];
   return (
     <>
       <Description />
@@ -50,9 +50,9 @@ function App() {
 
       {totalFeedback > 0 ? (
         <Feedback
-          good={votes.Good}
-          neutral={votes.Neutral}
-          bad={votes.Bad}
+          good={votes.good}
+          neutral={votes.neutral}
+          bad={votes.bad}
           total={totalFeedback}
           positivePercentage={positivePercentage}
         />
