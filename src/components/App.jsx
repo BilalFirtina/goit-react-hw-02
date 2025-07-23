@@ -2,7 +2,8 @@ import "./App.css";
 import Options from "./Options/Options.jsx";
 import { useState, useEffect } from "react";
 import Feedback from "./Feedback/Feedback.jsx";
-import Notificationn from "./Notification/Notification.jsx";
+import Notification from "./Notification/Notification.jsx";
+import Description from "./Description/Description.jsx";
 
 function App() {
   const localVotes = JSON.parse(localStorage.getItem("votes"))
@@ -36,14 +37,10 @@ function App() {
   const totalFeedback = votes.Good + votes.Neutral + votes.Bad;
   const positivePercentage =
     totalFeedback > 0 ? Math.round((votes.Good / totalFeedback) * 100) : 0;
-  const options = ["Good", "Neutral", "Bad"];
+  const options = ["good", "neutral", "bad"];
   return (
     <>
-      <h1>Sip Happens Café</h1>
-      <p>
-        Please leave your feedback about our service by selecting one of the
-        options below.
-      </p>
+      <Description />
       <Options
         options={options}
         updateFeedback={updateFeedback}
@@ -60,7 +57,7 @@ function App() {
           positivePercentage={positivePercentage}
         />
       ) : (
-        <Notificationn />
+        <Notification />
       )}
     </>
   );
