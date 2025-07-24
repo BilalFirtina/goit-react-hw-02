@@ -37,7 +37,7 @@ function App() {
   const totalFeedback = votes.good + votes.neutral + votes.bad;
   const positivePercentage =
     totalFeedback > 0 ? Math.round((votes.good / totalFeedback) * 100) : 0;
-  const options = ["Good", "Neutral", "Bad"];
+  const options = ["good", "neutral", "bad"];
   return (
     <>
       <Description />

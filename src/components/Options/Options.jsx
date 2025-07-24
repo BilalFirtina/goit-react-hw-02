@@ -8,9 +8,9 @@ const Options = ({ options, updateFeedback, totalFeedback, resetButton }) => {
           <button
             key={option}
             className={css.button}
-            onClick={() => updateFeedback(option.toLowerCase())}
+            onClick={() => updateFeedback(option)}
           >
-            {option}
+            {option.charAt(0).toUpperCase() + option.slice(1)}
           </button>
         );
       })}
